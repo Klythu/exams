@@ -40,12 +40,28 @@ void ArrSee(string[] arr)
 
 string[] StringsLessThenFour(string[] ArrayWithStrings)
 {
-    
+    int Num = 0;
+    for (int i = 0; i < ArrayWithStrings.Length; i++)
+    {
+        if (ArrayWithStrings[i].Length <= 3)
+        {
+            Num++;
+        }
+    }
+    string[] NewArrayWithStrings= new string[Num];
+    Num=0;
+    for (int i = 0; i < ArrayWithStrings.Length; i++)
+    {
+        if (ArrayWithStrings[i].Length <= 3)
+        {
+            NewArrayWithStrings[Num]=ArrayWithStrings[i];
+            Num++;
+        }
+    }
+    return NewArrayWithStrings;
 }
 
 string[] StringsForProgramm= AddStringsToArray(InputInt("количество элементов масива"));
 ArrSee(StringsForProgramm);
-foreach (string word in StringsForProgramm)
-{
-    
-}
+Console.WriteLine("=>");
+ArrSee(StringsLessThenFour(StringsForProgramm));
